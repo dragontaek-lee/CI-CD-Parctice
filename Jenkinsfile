@@ -5,7 +5,7 @@ pipeline {
         AWS_DEFAULT_REGION="us-east-1" 
 	CLUSTER_NAME="practice-jenkins"
 	SERVICE_NAME="nodejs-container-service"
-	TASK_DEFINITION_NAME=" first-run-task-definition:3"
+	TASK_DEFINITION_NAME="first-run-task-definition"
 	DESIRED_COUNT="1"
         IMAGE_REPO_NAME="992762349480.dkr.ecr.us-east-1.amazonaws.com/ci-cd-practice"
         IMAGE_TAG="${env.BUILD_ID}"
