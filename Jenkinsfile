@@ -7,7 +7,7 @@ pipeline {
 	SERVICE_NAME="nodejs-container-service"
 	TASK_DEFINITION_NAME="first-run-task-definition"
 	DESIRED_COUNT="1"
-        IMAGE_REPO_NAME="992762349480.dkr.ecr.us-east-1.amazonaws.com/ci-cd-practice"
+        IMAGE_REPO_NAME="ci-cd-practice"
         IMAGE_TAG="${env.BUILD_ID}"
         REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
 	registryCredential = "practice-admin-user"
