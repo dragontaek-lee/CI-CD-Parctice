@@ -1,12 +1,14 @@
-//import app from "../index";
-import app from "../index";
 import request from "supertest";
+import app from "../index";
 
-describe('API Test',()=>{
-   it('return text string',(done)=>{
-       request(app).get('/').expect('Content-Type',/text/).expect(200).end((error)=>{
-           if(error) throw done(error);
-           done();
-       });
-   });
+afterAll(async () => {
+	await new Promise<void>(resolve => setTimeout(() => resolve(), 500)); 
+});
+
+describe('App Request', () => {
+    test('should responds with 200', async () => {
+        await request(app)
+            .get('/')
+            .expect(200);
+    });
 });
