@@ -3,14 +3,14 @@ pipeline {
     environment {
         AWS_ACCOUNT_ID="992762349480"
         AWS_DEFAULT_REGION="us-east-1" 
-	    CLUSTER_NAME="practice-jenkins"
-	    SERVICE_NAME="nodejs-container-service"
-	    TASK_DEFINITION_NAME=" first-run-task-definition:3"
-	    DESIRED_COUNT="1"
+	CLUSTER_NAME="practice-jenkins"
+	SERVICE_NAME="nodejs-container-service"
+	TASK_DEFINITION_NAME=" first-run-task-definition:3"
+	DESIRED_COUNT="1"
         IMAGE_REPO_NAME="992762349480.dkr.ecr.us-east-1.amazonaws.com/ci-cd-practice"
         IMAGE_TAG="${env.BUILD_ID}"
         REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
-	    registryCredential = "practice-admin-user"
+	registryCredential = "practice-admin-user"
     }
    
     stages {
@@ -38,9 +38,9 @@ pipeline {
     stage('Pushing to ECR') {
      steps{  
          script {
-			docker.withRegistry("https://" + REPOSITORY_URI, "ecr:${AWS_DEFAULT_REGION}:" + registryCredential) {
+		docker.withRegistry("https://" + REPOSITORY_URI, "ecr:${AWS_DEFAULT_REGION}:" + registryCredential) {
                     	dockerImage.push()
-                	}
+                }
          }
         }
       }
